@@ -1,0 +1,24 @@
+<div class="side-nav">
+    <button [routerLink]="'help1'">help1</button>
+</div>
+
+<div class="side-body">
+    <router-outlet></router-outlet>
+</div>
+<input type="text" [(ngModel)]="helpData">
+{{ helpData }}
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Mobile</th>
+    </thead>
+    
+<div *ngFor="let user of users">
+    <tr>
+        <td>{{user.name }}</td>
+        <td>{{user.mobile }}</td>
+    </tr>
+    
+
+</div>
+</table>

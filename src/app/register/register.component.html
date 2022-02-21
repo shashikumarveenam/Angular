@@ -1,0 +1,41 @@
+<div class="registration">
+    <form [formGroup]="risterForm">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="username">
+          <div *ngIf="risterForm.controls['username'].invalid && (risterForm.controls['username'].dirty || risterForm.controls['username'].touched)" class="alert">
+            <div class="alert alert-danger" *ngIf="risterForm.controls['username'].errors">
+            Please enter username
+          </div>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!risterForm.valid" (click)="register()">Submit</button>
+      </form>
+</div>
+
+
+<!-- <form [formGroup]="risterForm">
+    <div>
+        username : <input type="text" formControlName="username">
+        <div *ngIf="risterForm.controls['username'].invalid && (risterForm.controls['username'].dirty || risterForm.controls['username'].touched)" class="alert">
+            <div *ngIf="risterForm.controls['username'].errors">
+            Please enter username
+          </div>
+        </div>
+    </div>
+    <div>
+        password : <input type="text" formControlName="password">
+    </div>
+    <div formGroupName="address">
+        <input type="text" formControlName="city">
+        <input type="text" formControlName="state">
+    </div>
+    <div>
+        <input type="button" (click)="updateName()" value="updateName">
+        <input  type="submit" value="Rigister" (click)="register()">
+    </div>
+</form> -->
