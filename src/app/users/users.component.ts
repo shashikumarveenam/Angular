@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GetUserService } from '../get-user.service';
+import { eachUser } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-users',
@@ -6,18 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  public users: any = [
-    {
-      name: 'shashi', mob: '9063735954'
-    },
-    {
-      name: 'abcd', mob: '11222222'
-    }
-  ]
-  constructor() { }
+  public users: eachUser[] = [];
+  constructor(private getUserService: GetUserService) { }
 
   ngOnInit(): void {
-    console.log("this  is usercomponent")
+    this.getUserService.getUsersList().subscribe(result => this.users = result)
   }
 
 }

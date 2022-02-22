@@ -15,3 +15,10 @@ export class A {
 class CityName {
     'city': string
 }
+
+export interface eachUser {
+    'userId': number | string;
+    'id': number;
+    'title': string;
+    'body': string;
+}

@@ -1,4 +1,12 @@
-<div *ngFor="let user of users">
-Name ----- {{user.name}} &nbsp;&nbsp;
-Mobile---- {{user.mob}}&nbsp;&nbsp;
-</div>
+<table class="table table-bordered">
+    <thead>
+        <th>Title</th>
+        <th>Body</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.title}}</td>
+            <td>{{user.body}}</td>
+        </tr>
+    </tbody>
+</table>
