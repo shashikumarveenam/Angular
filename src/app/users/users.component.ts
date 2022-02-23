@@ -9,10 +9,19 @@ import { eachUser } from '../interfaces/user.interface';
 })
 export class UsersComponent implements OnInit {
   public users: eachUser[] = [];
-  constructor(private getUserService: GetUserService) { }
+  public a: string ="";
+  constructor(private getUser: GetUserService) { }
 
   ngOnInit(): void {
-    this.getUserService.getUsersList().subscribe(result => this.users = result)
+    // getUsersList return observable so by subscribe() we can access the data
+    this.getUser.getUsersList().subscribe(result => {
+      this.users = result;
+    }
+    )
+
+    this.a = this.getUser.getAvbc();
+
+    this.getUser.staticObserable().subscribe(result=> console.log(result))
   }
 
 }
