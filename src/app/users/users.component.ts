@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GetUserService } from '../get-user.service';
 import { eachUser } from '../interfaces/user.interface';
 
@@ -10,7 +11,11 @@ import { eachUser } from '../interfaces/user.interface';
 export class UsersComponent implements OnInit {
   public users: eachUser[] = [];
   public a: string ="";
-  constructor(private getUser: GetUserService) { }
+  constructor(private getUser: GetUserService, private rout: Router) { }
+
+  public getId(id: number): void {
+    this.rout.navigateByUrl(`users/${id}`)
+  }
 
   ngOnInit(): void {
     // getUsersList return observable so by subscribe() we can access the data

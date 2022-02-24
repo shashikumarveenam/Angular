@@ -5,7 +5,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of users">
-            <td>{{user.title}}</td>
+            <td (click)="getId(user.id)">{{user.title}}</td>
             <td>{{user.body}}</td>
         </tr>
     </tbody>

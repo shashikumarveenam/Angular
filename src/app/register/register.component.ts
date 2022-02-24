@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-register',
@@ -9,20 +10,22 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   public risterForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private ser: ServiceService) {
     this.risterForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
-      address: this.fb.group({
-        city: [],
-        state: []
-      })
+      password: ['', Validators.required]
     })
     
    }
 
-   public register() {
-    console.log(this.risterForm)
+  public login() {
+    this.ser.getLogin(this.risterForm.value).subscribe(result => {
+      console.log(result)
+      if (result[0].status === 'success') {
+        alert("login successfully")
+      }
+    })
+    
    }
    
    public updateName() {

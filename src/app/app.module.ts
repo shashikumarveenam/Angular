@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { Help1Component } from './help1/help1.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { ServiceService } from './service.service';
 
 
 const routes = [
@@ -52,7 +53,7 @@ const routes = [
     RouterModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

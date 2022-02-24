@@ -4,18 +4,21 @@ import { UsersComponent } from '../users/users.component';
 import { RouterModule } from '@angular/router';
 import { GetUserService } from '../get-user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AbcdComponent } from '../abcd/abcd.component';
 
 const routes = [
   {
-    path: '', component: UsersComponent,
-  }
+    path: '', component: UsersComponent
+  },
+  { path: ':id', component: AbcdComponent },
 
   
 ]
 
 @NgModule({
   declarations: [
-    UsersComponent
+    UsersComponent,
+    AbcdComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,8 @@ const routes = [
     GetUserService,
   ],
   exports: [
-    UsersComponent
+    UsersComponent,
+    AbcdComponent
   ]
 })
 export class FirstModule { }
