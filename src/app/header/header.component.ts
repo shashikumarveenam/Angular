@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  public observableData: any;
+public userName: string | null = null;
+public userdata: any;
+  constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem("username")) {
+      this.userName = this.userdata = localStorage.getItem("username");
+      console.log("this.userdata ", this.userdata )
+      //this.service.subject.next(this.userdata);
+    }
+
+    this.observableData = this.service.subject;
+    this.observableData.subscribe((r: any) => {
+      if(r){
+        console.log(r)
+        this.userdata = r.email;
+      }
+      
+      
+    })
+    
+  }
+
+  public signOut() {
+    localStorage.removeItem('username');
+    this.service.setUserData('');
+    this.userdata = '';
   }
 
 }

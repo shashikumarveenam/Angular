@@ -11,7 +11,12 @@
         <div class="pd-2 menu service">Service</div>
     </div>
     <div class="third-nav">
-        <div class="menu pd-2">Signout
+        <div *ngIf="observableData | async as list">
+            <div class="menu pd-2" (click)="signOut()">Signout
+            </div>
+            <div class="menu pd-2" *ngIf="list">{{ list }}
+            </div>
         </div>
+        
     </div>
 </div>

@@ -1,10 +1,11 @@
 <div class="registration">
     <form [formGroup]="risterForm">
+      <div *ngIf="loginStatus" class="alert alert-danger">Invalid Login credentials.</div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="username">
-          <div *ngIf="risterForm.controls['username'].invalid && (risterForm.controls['username'].dirty || risterForm.controls['username'].touched)" class="alert">
-            <div class="alert alert-danger" *ngIf="risterForm.controls['username'].errors">
+          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email">
+          <div *ngIf="risterForm.controls['email'].invalid && (risterForm.controls['email'].dirty || risterForm.controls['email'].touched)" class="alert">
+            <div class="alert alert-danger" *ngIf="risterForm.controls['email'].errors">
             Please enter username
           </div>
         </div>

@@ -12,6 +12,7 @@ import { Help1Component } from './help1/help1.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ServiceService } from './service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes = [
@@ -51,6 +52,7 @@ const routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
   ],
   providers: [ServiceService],
