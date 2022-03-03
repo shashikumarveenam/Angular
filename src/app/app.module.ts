@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ServiceService } from './service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactComponent } from './contact/contact.component';
+import { ChildContactComponent } from './child-contact/child-contact.component';
 
 
 const routes = [
@@ -31,8 +33,11 @@ const routes = [
       ,
       {
         path: 'users', loadChildren: () => import('./first/first.module').then(m => m.FirstModule)
+      },
+      {
+        path: 'contact', component: ContactComponent
       }
-    ]
+    ],
   },
 
   
@@ -46,6 +51,8 @@ const routes = [
     FooterComponent,
     HeaderComponent,
     RegisterComponent,
+    ContactComponent,
+    ChildContactComponent,
   ],
   imports: [
     BrowserModule,

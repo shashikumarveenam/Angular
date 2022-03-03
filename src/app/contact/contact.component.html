@@ -1,0 +1,17 @@
+<p>contact works!</p>
+    <input type="number" [(ngModel)]="parentData">
+
+
+<!-- child data -->
+<!-- <div *ngIf="parentData">
+    <app-child-contact
+    [childVar]="parentData"
+    (setDefaultToParent)="getDefaultParent($event)">
+  </app-child-contact>
+</div> -->
+<div *ngIf="parentData">
+    <app-child-contact
+        [childVar]="parentData"
+        (setDefaultToParent)="parentData = $event">
+  </app-child-contact>
+</div>

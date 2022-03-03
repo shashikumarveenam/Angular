@@ -10,7 +10,7 @@ import { ServiceService } from '../service.service';
 })
 export class RegisterComponent implements OnInit {
   public risterForm: FormGroup;
-  public loginStatus: boolean  = false;;
+  public loginStatus: boolean  = false;
   
   constructor(private fb: FormBuilder, private ser: ServiceService, private route: Router) {
     this.risterForm = this.fb.group({
