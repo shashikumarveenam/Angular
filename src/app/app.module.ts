@@ -15,6 +15,7 @@ import { ServiceService } from './service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import { ChildContactComponent } from './child-contact/child-contact.component';
+import { ChildContactTwoComponent } from './child-contact-two/child-contact-two.component';
 
 
 const routes = [
@@ -53,6 +54,7 @@ const routes = [
     RegisterComponent,
     ContactComponent,
     ChildContactComponent,
+    ChildContactTwoComponent,
   ],
   imports: [
     BrowserModule,

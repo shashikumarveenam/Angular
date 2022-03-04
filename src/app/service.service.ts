@@ -9,12 +9,14 @@ import { loginInterface } from './interfaces/user.interface';
 export class ServiceService {
 
   public login$: Observable<any> = of([{'status': 'success', 'msg': 'login succesfully.'}]);
+  public testSubject$: any = new BehaviorSubject<number>(0);
 
   constructor(private http: HttpClient) { 
     if (localStorage.getItem("username")) {
       this.subject.next(localStorage.getItem("username"));
     }
   }
+
   
   //public subject = new BehaviorSubject(123);
 
