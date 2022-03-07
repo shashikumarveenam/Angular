@@ -1,0 +1,15 @@
+<!-- <div *ngFor="let eachUser of userData">
+    <div>
+        Username : {{ eachUser.name | uppercase }} &nbsp;&nbsp;&nbsp;
+        Mobile : {{ eachUser.mob | mobile }}  &nbsp;&nbsp;&nbsp;
+        Date: {{ eachUser.date | date }}
+    </div>
+</div> -->
+
+<div *ngFor="let eachUser of userData | mobile">
+    <div>
+        Username : {{ eachUser.name }} &nbsp;&nbsp;&nbsp;
+        Mobile : {{ eachUser.mob }}  &nbsp;&nbsp;&nbsp;
+        Date: {{ eachUser.date | date }}
+    </div>
+</div>

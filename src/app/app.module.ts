@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import { ChildContactComponent } from './child-contact/child-contact.component';
 import { ChildContactTwoComponent } from './child-contact-two/child-contact-two.component';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { MobilePipe } from './mobile.pipe';
 
 
 const routes = [
@@ -37,6 +39,9 @@ const routes = [
       },
       {
         path: 'contact', component: ContactComponent
+      },
+      {
+        path: 'pipes-demo', component: PipeDemoComponent
       }
     ],
   },
@@ -55,6 +60,8 @@ const routes = [
     ContactComponent,
     ChildContactComponent,
     ChildContactTwoComponent,
+    PipeDemoComponent,
+    MobilePipe,
   ],
   imports: [
     BrowserModule,
