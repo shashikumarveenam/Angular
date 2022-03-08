@@ -8,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PipeDemoComponent implements OnInit {
 
   public userData: any = []
-
   constructor() { }
-
   ngOnInit(): void {
     this.userData = [
       {name: 'zaaa', mob: '1234567890', date: '03-07-2022'},

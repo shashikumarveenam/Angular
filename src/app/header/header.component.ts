@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 public userName: string | null = null;
 public userdata: any;
   constructor(private service: ServiceService) { }
-
+public color ='blue';
   ngOnInit(): void {
     if (localStorage.getItem("username")) {
       this.userName = this.userdata = localStorage.getItem("username");

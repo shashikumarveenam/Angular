@@ -18,6 +18,7 @@ import { ChildContactComponent } from './child-contact/child-contact.component';
 import { ChildContactTwoComponent } from './child-contact-two/child-contact-two.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { MobilePipe } from './mobile.pipe';
+import { LableColorDirective } from './lable-color.directive';
 
 
 const routes = [
@@ -62,6 +63,7 @@ const routes = [
     ChildContactTwoComponent,
     PipeDemoComponent,
     MobilePipe,
+    LableColorDirective,
   ],
   imports: [
     BrowserModule,

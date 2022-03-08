@@ -8,8 +8,8 @@
 
 <div *ngFor="let eachUser of userData | mobile">
     <div>
-        Username : {{ eachUser.name }} &nbsp;&nbsp;&nbsp;
-        Mobile : {{ eachUser.mob }}  &nbsp;&nbsp;&nbsp;
+        <label appLableColor [color]="'blue'" [cond]="'true'">Username</label> : {{ eachUser.name }} &nbsp;&nbsp;&nbsp;
+        <label > Mobile</label> : {{ eachUser.mob }}  &nbsp;&nbsp;&nbsp;
         Date: {{ eachUser.date | date }}
     </div>
 </div>
