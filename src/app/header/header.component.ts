@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class HeaderComponent implements OnInit {
   public observableData: any;
 public userName: string | null = null;
 public userdata: any;
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService, private router: Router) { }
+
 public color ='blue';
   ngOnInit(): void {
     if (localStorage.getItem("username")) {
@@ -33,8 +35,10 @@ public color ='blue';
 
   public signOut() {
     localStorage.removeItem('username');
+    localStorage.removeItem("token");
     this.service.setUserData('');
     this.userdata = '';
+    this.router.navigate([""]);
   }
 
 }

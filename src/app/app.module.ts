@@ -12,13 +12,15 @@ import { Help1Component } from './help1/help1.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ServiceService } from './service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import { ChildContactComponent } from './child-contact/child-contact.component';
 import { ChildContactTwoComponent } from './child-contact-two/child-contact-two.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { MobilePipe } from './mobile.pipe';
 import { LableColorDirective } from './lable-color.directive';
+import { HeaderInterceptor } from './header-interceptor';
+import { CanActivateService } from './can-activate.service';
 
 
 const routes = [
@@ -26,7 +28,7 @@ const routes = [
     path: '', component: AppDemoComponent,
     children: [
       {
-        path: 'help/:uid', component: HelpComponent,
+        path: 'help/:uid', component: HelpComponent,  canActivate : [CanActivateService],
         children: [
           {path: 'help1', component: Help1Component}
         ]
@@ -42,7 +44,7 @@ const routes = [
         path: 'contact', component: ContactComponent
       },
       {
-        path: 'pipes-demo', component: PipeDemoComponent
+        path: 'pipes-demo', component: PipeDemoComponent, canActivate : [CanActivateService]
       }
     ],
   },
@@ -73,7 +75,10 @@ const routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [ServiceService],
+  providers: [
+    ServiceService,
+    CanActivateService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
