@@ -21,6 +21,7 @@ import { MobilePipe } from './mobile.pipe';
 import { LableColorDirective } from './lable-color.directive';
 import { HeaderInterceptor } from './header-interceptor';
 import { CanActivateService } from './can-activate.service';
+import { LifeCyleHooksComponent } from './life-cyle-hooks/life-cyle-hooks.component';
 
 
 const routes = [
@@ -45,6 +46,9 @@ const routes = [
       },
       {
         path: 'pipes-demo', component: PipeDemoComponent, canActivate : [CanActivateService]
+      },
+      {
+        path: 'hooks', component: LifeCyleHooksComponent
       }
     ],
   },
@@ -66,6 +70,7 @@ const routes = [
     PipeDemoComponent,
     MobilePipe,
     LableColorDirective,
+    LifeCyleHooksComponent,
   ],
   imports: [
     BrowserModule,

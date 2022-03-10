@@ -11,7 +11,12 @@ import { eachUser } from '../interfaces/user.interface';
 export class UsersComponent implements OnInit {
   public users: eachUser[] = [];
   public a: string ="";
+  public status = true;
   constructor(private getUser: GetUserService, private rout: Router) { }
+
+  public statusChange(): void {
+    this.status = false;
+  }
 
   public getId(id: number): void {
     this.rout.navigateByUrl(`users/${id}`)

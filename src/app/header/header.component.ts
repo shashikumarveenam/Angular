@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from '../service.service';
 
@@ -7,14 +7,18 @@ import { ServiceService } from '../service.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges {
   public observableData: any;
 public userName: string | null = null;
 public userdata: any;
-  constructor(private service: ServiceService, private router: Router) { }
+@Input() public val: any;
+  constructor(private service: ServiceService, private router: Router) { 
+    console.log("this is constructor")
+  }
 
 public color ='blue';
   ngOnInit(): void {
+    console.log("this is ngOnInit")
     if (localStorage.getItem("username")) {
       this.userName = this.userdata = localStorage.getItem("username");
       console.log("this.userdata ", this.userdata )
@@ -31,6 +35,14 @@ public color ='blue';
       
     })
     
+  }
+
+  public ngOnChanges(change: SimpleChanges): void {
+    console.log("this is ngOnChanges from header", change['val'].currentValue)
+  }
+
+  public ngDoCheck(): void {
+    console.log("this is ngDoCheck from header")
   }
 
   public signOut() {

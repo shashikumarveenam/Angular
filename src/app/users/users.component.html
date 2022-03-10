@@ -1,6 +1,6 @@
 <table class="table table-bordered">
     <thead>
-        <th>Title</th>
+        <th [ngClass]=" status ? 'condition-class' : 'non-condition-class' ">Title</th>
         <th>Body</th>
     </thead>
     <tbody>
@@ -10,5 +10,4 @@
         </tr>
     </tbody>
 </table>
-
-{{ a }}
+<button (click)="statusChange()">click</button>
