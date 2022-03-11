@@ -12,12 +12,14 @@ export class HeaderComponent implements OnInit, OnChanges {
 public userName: string | null = null;
 public userdata: any;
 @Input() public val: any;
+@Input() public age: string = '';
   constructor(private service: ServiceService, private router: Router) { 
     console.log("this is constructor")
   }
 
 public color ='blue';
   ngOnInit(): void {
+    //this.val = 'rishi';
     console.log("this is ngOnInit")
     if (localStorage.getItem("username")) {
       this.userName = this.userdata = localStorage.getItem("username");
@@ -28,7 +30,7 @@ public color ='blue';
     this.observableData = this.service.subject;
     this.observableData.subscribe((r: any) => {
       if(r){
-        console.log(r)
+       // console.log(r)
         this.userdata = r.email;
       }
       
@@ -38,11 +40,23 @@ public color ='blue';
   }
 
   public ngOnChanges(change: SimpleChanges): void {
-    console.log("this is ngOnChanges from header", change['val'].currentValue)
+    console.log("this is ngOnChanges from header", change)
   }
 
   public ngDoCheck(): void {
-    console.log("this is ngDoCheck from header")
+    console.log("this is ngDoCheck from header", this.val)
+  }
+  ngAfterContentInit() {
+    console.log("this is ngAfterContentInit from header", this.val)
+  }
+  ngAfterContentChecked() {
+    console.log("this is ngAfterContentChecked from header", this.val)
+  }
+  ngAfterViewInit() {
+    console.log("this is ngAfterViewInit from header", this.val)
+  }
+  ngAfterViewChecked() {
+    console.log("this is ngAfterViewChecked from header", this.val)
   }
 
   public signOut() {

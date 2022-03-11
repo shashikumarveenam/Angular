@@ -18,11 +18,11 @@ public usernameArray = this.dynamicForm.get('username') as FormArray;
 
 public addName() {
   this.usernameArray.push(new FormControl(null, [Validators.required, Validators.minLength(3)]));
-  console.log(this.usernameArray)
+  //console.log(this.usernameArray)
 }
 
 public getUsername() {
-  console.log("usernameArray", this.usernameArray)
+ // console.log("usernameArray", this.usernameArray)
   return this.usernameArray;
 }
 
@@ -83,17 +83,17 @@ public getUsername() {
       }
       i++;
     }
-   console.log(list.join(' '));
+   //console.log(list.join(' '));
    return list;
  } 
   public ngOnInit() {
-    console.log(this.generate(7));
+    //console.log(this.generate(7));
     let arrayList = [5,9,15,11,55];
     let goal = 14;
     let closest = arrayList.reduce(function(prev, curr){
 return Math.abs(curr-goal) < Math.abs(prev-goal) ? curr : prev;
     })
-    console.log("closest", closest)
+    //console.log("closest", closest)
     let x = [1,2,3];
     let z = [...x, 4];
     //console.log(z)

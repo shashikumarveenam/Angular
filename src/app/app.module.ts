@@ -22,6 +22,7 @@ import { LableColorDirective } from './lable-color.directive';
 import { HeaderInterceptor } from './header-interceptor';
 import { CanActivateService } from './can-activate.service';
 import { LifeCyleHooksComponent } from './life-cyle-hooks/life-cyle-hooks.component';
+import { CardComponent } from './card/card.component';
 
 
 const routes = [
@@ -71,6 +72,7 @@ const routes = [
     MobilePipe,
     LableColorDirective,
     LifeCyleHooksComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
